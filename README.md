@@ -1,3 +1,4 @@
+<!-- topics: vue,vue3,typescript,pinia,tailwindcss,openstack,cloud-console,dashboard,vite -->
 # Vue Cloud Console
 
 Customer-facing cloud console in Vue 3 + TypeScript: compute, block storage, floating IPs, security groups, billing and an activity log, modelled on an OpenStack tenant portal and runnable with zero backend through a mock API layer.
