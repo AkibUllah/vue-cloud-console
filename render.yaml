@@ -1,0 +1,14 @@
+# Render blueprint: builds the nginx image from the Dockerfile in mock mode (no backend needed).
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: vue-cloud-console
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: "80"

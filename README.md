@@ -8,6 +8,15 @@ Customer-facing cloud console in Vue 3 + TypeScript: compute, block storage, flo
 ![TypeScript 5.4](https://img.shields.io/badge/typescript-5.4-3178c6)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
+## Try it live
+
+| | |
+|---|---|
+| Live demo | https://akibullah.github.io/vue-cloud-console/ — the real console on the in-memory mock API; sign in with any email and a password of six or more characters (prefix the email with `admin` for the admin role) |
+| Run in your browser | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/AkibUllah/vue-cloud-console?quickstart=1) — installs dependencies and starts the Vite dev server in mock mode; open the forwarded port 5173 ("Cloud Console") |
+| One-click deploy | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AkibUllah/vue-cloud-console) — nginx image from the Dockerfile in mock mode |
+| Local | `docker compose up --build -d` or `npm install && npm run dev` (see Quick Start) |
+
 ## Why this exists
 
 Horizon, the stock OpenStack dashboard, is built for operators. Customers of a local cloud want something narrower and friendlier: launch a VM in five guided steps, see how much of their quota is left before they hit a 403, attach a volume without reading the Cinder docs, and understand the bill in taka. This console is that product surface. The API layer is an interface with two implementations, so the UI can be developed and tested entirely against an in-memory mock with realistic latency and state transitions, then pointed at a real gateway by flipping one environment variable.
