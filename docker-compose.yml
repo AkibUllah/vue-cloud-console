@@ -1,0 +1,8 @@
+services:
+  console:
+    build:
+      context: .
+      args:
+        VITE_API_MODE: mock
+    ports:
+      - "8080:80"
