@@ -4,6 +4,8 @@
 Customer-facing cloud console in Vue 3 + TypeScript: compute, block storage, floating IPs, security groups, billing and an activity log, modelled on an OpenStack tenant portal and runnable with zero backend through a mock API layer.
 
 [![CI](https://github.com/AkibUllah/vue-cloud-console/actions/workflows/ci.yml/badge.svg)](https://github.com/AkibUllah/vue-cloud-console/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/AkibUllah/vue-cloud-console/actions/workflows/codeql.yml/badge.svg)](https://github.com/AkibUllah/vue-cloud-console/actions/workflows/codeql.yml)
+[![Release](https://img.shields.io/github/v/release/AkibUllah/vue-cloud-console)](https://github.com/AkibUllah/vue-cloud-console/releases)
 ![Vue 3.4](https://img.shields.io/badge/vue-3.4-42b883)
 ![TypeScript 5.4](https://img.shields.io/badge/typescript-5.4-3178c6)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
@@ -16,6 +18,20 @@ Customer-facing cloud console in Vue 3 + TypeScript: compute, block storage, flo
 | Run in your browser | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/AkibUllah/vue-cloud-console?quickstart=1) — installs dependencies and starts the Vite dev server in mock mode; open the forwarded port 5173 ("Cloud Console") |
 | One-click deploy | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AkibUllah/vue-cloud-console) — nginx image from the Dockerfile in mock mode |
 | Local | `docker compose up --build -d` or `npm install && npm run dev` (see Quick Start) |
+
+## Screenshots
+
+![Signing in, rebooting an instance, launching a new one and browsing billing on the live demo](docs/images/demo.gif)
+
+*Live demo: sign in, overview, reboot an instance, launch wizard, security groups, billing, dark mode.*
+
+![Overview page with quota gauges, monthly spend chart, instances and recent activity](docs/images/overview.png)
+
+*Overview: quota gauges, month-to-date and projected spend in BDT, instance summary and activity trail.*
+
+![Launch wizard on the flavor step with a live monthly cost estimate](docs/images/launch-wizard.png)
+
+*Launch wizard: flavors filtered by image requirements, with the monthly cost estimate updating as you choose.*
 
 ## Why this exists
 
@@ -79,7 +95,7 @@ Key decisions:
 - **Business rules live outside components.** Quota math, wizard step validation, cost estimate and security-rule validation are pure TypeScript modules, so they are unit-tested without mounting anything.
 - **Stores own side effects and feedback.** Actions call the API, update local state optimistically from the response, and raise toasts; destructive actions go through a promise-based `ui.ask()` confirm dialog.
 - **The mock behaves like the real thing.** It enforces quota, rejects invalid transitions (stop a stopped VM, release an associated IP, delete the default group) and walks BUILD → ACTIVE over time, so the UI handles the same edge cases it will meet in production.
-- **No chart library.** The gauges and the spend chart are small SVG components; the whole app is ~160 KB gzipped.
+- **No chart library.** The gauges and the spend chart are small SVG components; the whole production build is about 85 KB of gzipped JS and CSS.
 
 ## Tech Stack
 
@@ -171,11 +187,11 @@ Covered: quota percentages/levels/launch checks, wizard step validation and gati
 
 ## Roadmap
 
-- Instance detail page with console log and resize
-- Snapshots and images management
-- Keypair creation (upload public key) and project member management
-- Keystone-compatible auth in the HTTP client (scoped tokens, catalog discovery)
-- Bangla locale for labels and BDT numerals
+- [ ] Instance detail page with console log and resize (#2)
+- [ ] Snapshots and images management (#3)
+- [ ] Keypair creation (upload public key) and project member management (#4)
+- [ ] Keystone-compatible auth in the HTTP client (scoped tokens, catalog discovery) (#5)
+- [ ] Bangla locale for labels and BDT numerals (#6)
 
 ## License
 
