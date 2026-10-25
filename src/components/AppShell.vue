@@ -30,7 +30,7 @@ async function logout() {
     <aside class="hidden w-60 shrink-0 flex-col border-r border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900 md:flex" :class="{ '!flex absolute inset-y-0 left-0 z-30': ui.sidebarOpen }">
       <RouterLink to="/" class="mb-6 flex items-center gap-2 text-lg font-semibold text-brand-700 dark:text-brand-100" @click="ui.sidebarOpen = false">
         <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#1f54d6" /><path d="M10 21a4 4 0 0 1 .6-7.95A6 6 0 0 1 22 14a3.5 3.5 0 0 1 0 7z" fill="#fff" /></svg>
-        Meghna Cloud
+        Demo Cloud
       </RouterLink>
       <nav class="flex flex-1 flex-col gap-1" aria-label="Main">
         <RouterLink
@@ -58,7 +58,7 @@ async function logout() {
     <div class="flex min-w-0 flex-1 flex-col">
       <div class="flex items-center gap-2 border-b border-slate-200 bg-white px-4 py-2 dark:border-slate-800 dark:bg-slate-900 md:hidden">
         <button type="button" class="btn-secondary !px-2 !py-1" aria-label="Toggle navigation" @click="ui.sidebarOpen = !ui.sidebarOpen">☰</button>
-        <span class="font-semibold">Meghna Cloud</span>
+        <span class="font-semibold">Demo Cloud</span>
       </div>
       <main class="flex-1 p-4 md:p-6">
         <RouterView />

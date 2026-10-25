@@ -12,7 +12,7 @@ import { useVolumesStore } from './volumes';
 
 async function signIn() {
   const auth = useAuthStore();
-  expect(await auth.login('akib@meghna.cloud', 'password')).toBe(true);
+  expect(await auth.login('demo@demo.cloud', 'password')).toBe(true);
   return auth;
 }
 
@@ -25,7 +25,7 @@ describe('auth store', () => {
   it('logs in, exposes the user and logs out', async () => {
     const auth = useAuthStore();
     expect(auth.isAuthenticated).toBe(false);
-    expect(await auth.login('akib@meghna.cloud', 'short')).toBe(false);
+    expect(await auth.login('demo@demo.cloud', 'short')).toBe(false);
     expect(auth.error).toBe('invalid email or password');
     await signIn();
     expect(auth.user?.project).toBe('fintech-prod');
@@ -170,6 +170,6 @@ describe('billing', () => {
     expect(billing.monthToDate).toBe(30328);
     expect(billing.breakdown[0].kind).toBe('instance');
     expect(billing.outstanding).toBe(0);
-    expect(billing.activity[0]).toMatchObject({ action: 'auth.login', target: 'akib@meghna.cloud', outcome: 'success' });
+    expect(billing.activity[0]).toMatchObject({ action: 'auth.login', target: 'demo@demo.cloud', outcome: 'success' });
   });
 });

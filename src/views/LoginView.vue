@@ -6,7 +6,7 @@ import { useAuthStore } from '@/stores/auth';
 const auth = useAuthStore();
 const router = useRouter();
 const route = useRoute();
-const email = ref('akib@meghna.cloud');
+const email = ref('demo@demo.cloud');
 const password = ref('password');
 
 async function submit() {
@@ -22,7 +22,7 @@ async function submit() {
       <div class="flex items-center gap-2">
         <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#1f54d6" /><path d="M10 21a4 4 0 0 1 .6-7.95A6 6 0 0 1 22 14a3.5 3.5 0 0 1 0 7z" fill="#fff" /></svg>
         <div>
-          <h1 class="text-lg font-semibold">Meghna Cloud Console</h1>
+          <h1 class="text-lg font-semibold">Demo Cloud Console</h1>
           <p class="text-xs text-slate-500">Sign in to your project</p>
         </div>
       </div>
